@@ -187,16 +187,14 @@ vapi.on('call-end', () => {
 
         {userData && (
   <div className="mt-6 p-4 bg-white rounded-xl shadow-lg">
-    <h2 className="text-xl font-bold mb-2 text-gray-800">Fetched Users:</h2>
+    <h2 className="text-xl font-bold mb-2 text-gray-800">Fetched User:</h2>
     <ul className="space-y-2">
-      {userData.map((user, index) => (
-        <li key={index} className="text-gray-700 border-b pb-2">
-          <p><strong>Debate Type:</strong> {user.debatetype}</p>
-          <p><strong>Username:</strong> {user.username}</p>
-          <p><strong>From Side:</strong> {user.fromside}</p>
-          <p><strong>Job:</strong> {user.job}</p>
-        </li>
-      ))}
+      <li className="text-gray-700 border-b pb-2">
+        <p><strong>Debate Type:</strong> {userData.debatetype}</p>
+        <p><strong>Username:</strong> {userData.username}</p>
+        <p><strong>From Side:</strong> {userData.fromside}</p>
+        <p><strong>Job:</strong> {userData.job}</p>
+      </li>
     </ul>
   </div>
 )}
