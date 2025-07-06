@@ -59,7 +59,7 @@ const handleStartVideoCall = async (): Promise<void> => {
       console.log('Customer service call ended');
       async function getUser(){
         try{
-          const res = await axios.get<User[]>('https://debatefinal.onrender.com/')
+          const res = await axios.get<User[]>('https://debatefinal.onrender.com/api/details')
           console.log(`Users : ${res.data}`)
           setUserData(res.data)
         } catch (error){
