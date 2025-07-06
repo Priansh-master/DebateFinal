@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import VideoCallForm from '../components/videocall.js'
 
 function App() {
