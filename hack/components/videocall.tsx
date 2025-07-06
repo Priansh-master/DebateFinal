@@ -22,7 +22,7 @@ const YOUR_PUBLIC_API_KEY: string = "0fd7f2e6-79e5-4447-b165-2211fd2054a1";
 const VideoCallForm: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('');
-  const [userData, setUserData] = useState<User[] | null>(null);
+  const [userData, setUserData] = useState<User | null>(null);
 
 
   const difficulties: Difficulty[] = [
@@ -61,7 +61,7 @@ vapi.on('call-end', () => {
   setTimeout(() => {
     async function getUser() {
       try {
-        const res = await axios.get<User[]>('https://debatefinal.onrender.com/api/details');
+        const res = await axios.get<User>('https://debatefinal.onrender.com/api/details');
         console.log(`Users: ${JSON.stringify(res.data)}`);
         setUserData(res.data);
       } catch (error) {
