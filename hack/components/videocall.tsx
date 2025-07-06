@@ -55,19 +55,23 @@ const handleStartVideoCall = async (): Promise<void> => {
   });
 
 
-    vapi.on('call-end', () => {
-      console.log('Customer service call ended');
-      async function getUser(){
-        try{
-          const res = await axios.get<User[]>('https://debatefinal.onrender.com/api/details')
-          console.log(`Users : ${res.data}`)
-          setUserData(res.data)
-        } catch (error){
-          console.log(error)
-        }
+vapi.on('call-end', () => {
+  console.log('Customer service call ended');
+
+  setTimeout(() => {
+    async function getUser() {
+      try {
+        const res = await axios.get<User[]>('https://debatefinal.onrender.com/api/details');
+        console.log(`Users: ${JSON.stringify(res.data)}`);
+        setUserData(res.data);
+      } catch (error) {
+        console.log(error);
       }
-      getUser()
-  });
+    }
+
+    getUser();
+  }, 2000); // Delay in milliseconds (1000 ms = 1 second)
+});
   // try {
   //   const response = await fetch('https://api.vapi.ai/call/workflow', {
   //     method: 'POST',
