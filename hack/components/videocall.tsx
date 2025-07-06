@@ -48,17 +48,14 @@ const VideoCallForm: React.FC = () => {
 
 const handleStartVideoCall = async (): Promise<void> => {
   const vapi = new Vapi(YOUR_PUBLIC_API_KEY);
-  let isConnected = false;
   vapi.start(undefined, undefined, undefined, YOUR_WORKFLOW_ID);
 
     vapi.on('call-start', () => {
-      isConnected = true;
       console.log('E-commerce customer service call started');
   });
 
 
     vapi.on('call-end', () => {
-      isConnected = false;
       console.log('Customer service call ended');
       async function getUser(){
         try{
